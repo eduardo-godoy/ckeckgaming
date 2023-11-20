@@ -16,6 +16,22 @@ const productos = [
         categoria: 'Computadoras'
     },
     {
+        id: 11,
+        titulo: 'Notebook Gamer 2',
+        imagen: '../assets/images/note2.jpeg',
+        descripcion: 'Notebook Gamers numero 2',
+        precio: 11000,
+        categoria: 'Notebooks'
+    },
+    {
+        id: 12,
+        titulo: 'Notebook Gamer 3',
+        imagen: '../assets/images/note3.jpeg',
+        descripcion: 'Notebook Gamers numero 3',
+        precio: 13000,
+        categoria: 'Notebooks'
+    },
+    {
         id: 3,
         titulo: 'Computadora Gamer 3',
         imagen: '../assets/images/Compu3.jpeg',
@@ -80,22 +96,6 @@ const productos = [
         categoria: 'Notebooks'
     },
     {
-        id: 11,
-        titulo: 'Notebook Gamer 2',
-        imagen: '../assets/images/note2.jpeg',
-        descripcion: 'Notebook Gamers numero 2',
-        precio: 11000,
-        categoria: 'Notebooks'
-    },
-    {
-        id: 12,
-        titulo: 'Notebook Gamer 3',
-        imagen: '../assets/images/note3.jpeg',
-        descripcion: 'Notebook Gamers numero 3',
-        precio: 13000,
-        categoria: 'Notebooks'
-    },
-    {
         id: 13,
         titulo: 'Notebook Gamer 4',
         imagen: '../assets/images/note4.jpg',
@@ -114,33 +114,3 @@ const productos = [
 
 ]
 
-const contenedor = document.querySelector('section.main-section')
-
-function crearCardError() {
-    // return `<div class="div-card-error">
-    //             <div class="imagen-error">🤦🏻‍♂️</div>
-    //             <div class="leyenda-error">No pudimos cargar los productos</div>
-    //             <div class="leyenda-intento">Intenta nuevamente en unos segundos.</div>
-    //         </div>`
-}
-
-function crearCardHTML(producto) {
-    return `<article class='article-card'>
-                <img src='${producto.imagen}' class='imagen'/>
-                <h2 class='h2-titulo'> Su ID es: ${producto.id}</h2>
-                <h2 class='h2-titulo'>${producto.titulo}</h2>
-                <h3 class='h2-titulo'>Precio: $${producto.precio}</h3>
-                <button class='btn'>Agregar</button>
-            </article>`
-}
-
-function cargarProductos() {
-    if (productos.length > 0) {
-        contenedor.innerHTML = ''
-        productos.forEach((producto) => contenedor.innerHTML += crearCardHTML(producto))
-        const botones = document.querySelectorAll('button.add-to-cart')
-        console.log(botones)
-    }
-}
-
-cargarProductos()
