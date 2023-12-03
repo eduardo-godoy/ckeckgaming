@@ -1,3 +1,6 @@
+// ubicacion de los productos en JSON
+const urlJson = './productos.json'
+
 const contenedorIndex = document.querySelector('section.main-section')
 const tituloIndex = document.querySelector('h1.h1-index')
 const numeroCarrito = document.querySelector('p.p-cart')
@@ -7,11 +10,18 @@ const botonNotebooks = document.querySelector('li ul.ul-index-2')
 const totalSection = document.querySelector('section.total-section')
 const btnCart = document.querySelector('a.a-cart')
 const logo = document.querySelector('a.logo-a')
+const botonCkeckout = document.querySelector('.btn-ckeckout')
+const botonCarrito = document.querySelector('.btn-ckeckout')
+const aDelCarrito = document.querySelector('.a')
+const mainIndex = document.querySelector('.main-index')
+botonCkeckout.style.display = 'none'
+
 
 // tomamos el carrito de localstorage y lo convertimos en array
-
 let carrito = JSON.parse(localStorage.getItem('carrito')) || []
 
+//array vacio hasta que traigamos el json convertido en array de productos
+let productos = []
 
 // funciones del index, renderizado de todos los productos, mas la funcion del agregado al carrito 
 
@@ -32,6 +42,19 @@ function crearCardHTML({id, imagen, titulo, precio}) {
             </article>`
 }
 
+// libreria toastify
+
+function mensajeToast(mensaje, estilo) {
+    Toastify({
+        text: mensaje,
+        duration: 6000,
+        close: true,
+        style: {
+          background: estilo,
+        }
+      }).showToast()
+}
+
 // funcion que agrega al carrito los productos, tomandolos por su id y pusheandolos en el array de carrito, por ultimo se convierte en 
 // un json y se guarda en local storage
 
@@ -44,6 +67,7 @@ function activarClickEnBotones() {
             carrito.push(productoSeleccionado)
             numeroCarrito.innerHTML = carrito.length || null
             localStorage.setItem("carrito", JSON.stringify(carrito))
+            mensajeToast(`${productoSeleccionado.titulo} se agregó al carrito`, "black")
         })
     })
 }
@@ -60,14 +84,24 @@ function cargarProductos() {
     }
 }
 
-cargarProductos()
+// funcion para trar el json y convertirlo en array y poder manipular esos datos
+function cargarProductosJson(){
+    contenedorIndex.innerHTML = `<h1>Cargando productos, por favor espere</h1>`
+    setTimeout(()=> {
+    fetch(urlJson)
+    .then((response) => response.json())
+    .then((data) => productos.push(...data))
+    .then(()=>cargarProductos())
+    .catch((e) => contenedorIndex.innerHTML = crearCardError())},1000)
+ }
+
+cargarProductosJson()
 
 // eventos del input y el navbar, filtra por lo q escibre el usuario o haciendo click en computadora o notebook te filtra por la categoria.
 
 inputBuscar.addEventListener('search', ()=> {
     let textoAbuscar = inputBuscar.value.trim().toLowerCase()
     let resultado = productos.filter((producto)=> producto.titulo.toLowerCase().includes(textoAbuscar))
-    console.log(resultado)
     if(resultado.length > 0){
         contenedorIndex.innerHTML = ""
         totalSection.innerHTML = ""
@@ -115,7 +149,7 @@ function crearCardHTMLCart({imagen, titulo, precio}) {
 function mostrarTotal(){
     const compra = new Compra(carrito)
     let total = compra.obtenerTotal()
-    totalSection.innerHTML = 'El total de su compra es de: $' + total
+    totalSection.innerHTML = `<h3 class='h3-carrito'>El total de su compra es de: $${total}</h3>`
 }
 
 function cargarProductosEnCarrito() {
@@ -123,9 +157,9 @@ function cargarProductosEnCarrito() {
         tituloIndex.innerHTML = 'Carrito'
         contenedorIndex.innerHTML = ''
         carrito.forEach((producto) => contenedorIndex.innerHTML += crearCardHTMLCart(producto))
-        numeroCarrito.innerHTML = carrito.length || null
+        numeroCarrito.innerHTML = carrito.length || null  
+        botonCkeckout.style.display = 'flex' 
         mostrarTotal()
-        totalSection
     } else {
         tituloIndex.innerHTML = ''
         contenedorIndex.innerHTML = crearCardHTMLError()
@@ -135,6 +169,20 @@ function cargarProductosEnCarrito() {
 // evento del dom para acceder al carrito
 
 btnCart.addEventListener('click', cargarProductosEnCarrito)
+
+
+function mostrarFormulario(){
+    mainIndex.innerHTML = ''
+    mainIndex.innerHTML = `<main class="main-section-formulario">
+                                        <label class="label">Nombre completo</label><input class="input-formulario" value="Cosme Fulanito">
+                                        <label class="label">Email</label><input class="input-formulario" value="cosmeFulanito@gmail.com">
+                                        <label class="label">Direccion</label><input class="input-formulario" value="Avenida Siempre Viva 123">
+                                        <label class="label">Telefono</label><input class="input-formulario" value="1164692686">
+                                        <a href="index.html" class="a-finalizar-compra"><button class='btn-formulario'>Finalizar</button></a> 
+                                </main> `
+}
+   
+botonCarrito.addEventListener('click', mostrarFormulario)
 
 // function buscarComputadora(id) {
 //     let idBuscado = productos.find((producto) => producto.id === id)
