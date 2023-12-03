@@ -26,6 +26,7 @@ body{
 .logo-a{
     width: 20%;
     height: auto;
+    cursor: pointer;
 }
 
 .logo-img{
@@ -229,7 +230,7 @@ h1{
 }
 
 .input-formulario{
-    width: 50%;
+    width: 30%;
     height: 5vh;
     font-size: 20px;
     font-weight: bold;
@@ -254,13 +255,34 @@ h1{
     border: none;
     margin: 5px;
     text-align: center;
-    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    margin-top: 20%;
+    width: 10%;
+    margin-left: 45%;
+    margin-top: 2%;
 }
-  
+
+.btn-ckeckout{
+    -webkit-border-radius: 60;
+    -moz-border-radius: 60;
+    border-radius: 60px;
+    -webkit-box-shadow: 2px 1px 5px rgb(7,8,8);
+    -moz-box-shadow: 2px 1px 5px rgb(7,8,8);
+    box-shadow: 2px 1px 5px rgb(7,8,8);
+    font-family: Arial;
+    color: #FDFEFE;
+    font-size: 15px;
+    background: rgb(7,8,8);
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    margin: 5px;
+    text-align: center;
+    width: 15%;
+    margin-left: 8%;
+    margin-top: 2%;
+}
+
 .btn-formulario:hover{
     background: rgba(43,45,47,1);
     text-decoration: none;

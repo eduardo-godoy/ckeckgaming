@@ -4,36 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ckeck Gaming</title>
+    <!-- ESTILOS DE LETRAS DE GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!-- HOJA DE ESTILOS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ICONO DEL NAVEGADOR -->
     <link rel="shortcut icon" href="assets/images/logo.png"/>
+    <!-- TOASTIFY JS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script defer src="js/class.compra.js"></script> 
-    <script defer src="js/index.js"></script>
+    <!-- SWEET ALERT2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <!-- ARCHIVOS JS -->
+    <script defer src="./js/class.compra.js"></script> 
+    <script defer src="./js/index.js"></script>
 </head>
 <body>
-    <header class="header-index">
-        <a class="logo-a" href="index.html"><img class="logo-img" src="assets/images/ckeck.png"></a>
-        <input class="input-index" type="search" placeholder="Buscar..." name=""><img class="glass-img" src="/assets/images/glass.svg" alt=""></input>
-        <li class="li-index">
-        <ul class="ul-index-1">Computadoras</ul>
-        <ul class="ul-index-2">Notebooks</ul>
-        </li>
-        <a class="a-cart"><img class="cart-index" src="assets//images/cart-shopping-solid.svg"><p class="p-cart"></p></a>
-    </header>
-    <main class="main-index">
-        <h1 class="h1-index"></h1>
-        <section class="main-section">
+     <!-- HEADER -->
+        <header class="header-index">
+            <a class="logo-a"><img class="logo-img" src="./assets/images/ckeck.png"></a>
+            <input class="input-index" type="search" placeholder="Buscar..." name=""></input>
+            <li class="li-index">
+            <ul class="ul-index-1">Computadoras</ul>
+            <ul class="ul-index-2">Notebooks</ul>
+            </li>
+            <a class="a-cart"><img class="cart-index" src="./assets/images/cart-shopping-solid.svg"><p class="p-cart"></p></a>
+        </header>
+    <!-- MAIN -->
+        <main class="main-index">
+            <h1 class="h1-index"></h1>
+            <section class="main-section">
 
-        </section>
-        <section class="total-section">
-            
-        </section>
-        <a class="a"><button class='btn-ckeckout' id="btn-ckeckout">Finalizar la compra</button></a>
-    </main>
+            </section>
+            <section class="total-section">
+                
+            </section>
+            <!-- BOTON QUE APARECE EN EL CARRITO DE COMPRAS -->
+            <a class="a-ckeckout"><button class='btn-ckeckout'>Finalizar la compra</button></a>
+            <!-- BOTON QUE APARECE EN EL FORMULARIO FINAL DE COMPRAS -->
+            <a class="a-formulario"><button class='btn-formulario'>Finalizar</button></a>
+        </main>
+    <!-- FOOTER -->
     <footer class="footer-index">
         <section class="section-footer-1">
             <h2 class="h2-footer-1">DML Studios</h2>

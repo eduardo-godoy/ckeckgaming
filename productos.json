@@ -15,6 +15,22 @@
     "categoria": "Computadoras"
 },
 {
+    "id": 12,
+    "titulo": "Notebook Gamer 3",
+    "imagen": "../assets/images/note3.jpeg",
+    "descripcion": "Notebook Gamers numero 3",
+    "precio": 13000,
+    "categoria": "Notebooks"
+},
+{
+    "id": 13,
+    "titulo": "Notebook Gamer 4",
+    "imagen": "../assets/images/note4.jpg",
+    "descripcion": "Notebook Gamers numero 4",
+    "precio": 14000,
+    "categoria": "Notebooks"
+},
+{
     "id": 3,
     "titulo": "Computadora Gamer 3",
     "imagen": "../assets/images/Compu3.jpeg",
@@ -84,22 +100,6 @@
     "imagen": "../assets/images/note2.jpeg",
     "descripcion": "Notebook Gamers numero 2",
     "precio": 11000,
-    "categoria": "Notebooks"
-},
-{
-    "id": 12,
-    "titulo": "Notebook Gamer 3",
-    "imagen": "../assets/images/note3.jpeg",
-    "descripcion": "Notebook Gamers numero 3",
-    "precio": 13000,
-    "categoria": "Notebooks"
-},
-{
-    "id": 13,
-    "titulo": "Notebook Gamer 4",
-    "imagen": "../assets/images/note4.jpg",
-    "descripcion": "Notebook Gamers numero 4",
-    "precio": 14000,
     "categoria": "Notebooks"
 },
 {
